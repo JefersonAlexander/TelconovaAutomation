@@ -7,15 +7,20 @@ import io.cucumber.java.en.Then;
 
 import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
 import org.openqa.selenium.WebDriver;
 
+import com.fasterxml.jackson.databind.deser.DataFormatReaders.Match;
+
 import co.edu.udea.certificacion.telconova.tasks.OpenThe;
 import co.edu.udea.certificacion.telconova.userinterfaces.GooglePage;
+import co.edu.udea.certificacion.telconova.questions.Validation;
 import co.edu.udea.certificacion.telconova.tasks.FindThe;
+import org.hamcrest.Matchers;
 
 
 public class FindAotStepDefinition {
@@ -46,6 +51,7 @@ public class FindAotStepDefinition {
 
     @Then("I can see the official page of U de A")
     public void iCanSeeTheOfficialPageOfUDeA() {
-        throw new io.cucumber.java.PendingException();
+        GivenWhenThen.then(student).should(GivenWhenThen.seeThat(Validation.theUdeASite(),Matchers.containsString("Estudiante")));
+
     }
 }

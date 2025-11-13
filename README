@@ -1,0 +1,5 @@
+./gradlew test
+
+./gradlew clean test aggregate
+
+./gradlew clean test aggregate --info
